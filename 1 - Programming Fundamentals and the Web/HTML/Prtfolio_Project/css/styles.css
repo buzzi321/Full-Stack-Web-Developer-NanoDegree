@@ -1,0 +1,158 @@
+body {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    background: #558c89;
+    margin: 2% 10% 2% 10%;
+
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 26.4px;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 20.4px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 15.4px;
+}
+
+
+
+header {
+    padding-top:5px;
+    background: #74AFAD;
+    padding-bottom:5px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+header .container{
+    display: flex;
+    padding: 1px 5px 2px 5px;
+}
+
+
+
+
+header .blockline {
+    border-bottom: solid 4px #D9853B;
+    width: 100%;
+    height: auto;
+}
+
+header .rightSide{
+    text-align: right;
+    width:60%;
+    height: auto;
+}
+
+header .leftSide{
+    text-align: left;
+    width:40%;
+
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+.frontface{
+    padding-top:10px;
+    max-width: 100%;
+    max-height: 100%;
+    width:100%;
+    border-radius: 5%;
+}
+
+.worklist {
+    display: flex;
+    flex-direction: row;
+    -webkit-justify-content: space-between; /* Safari */
+    justify-content: space-between;
+    height: auto;
+    max-width: 100%;
+
+}
+
+.workitem {
+    background: #fff;
+    margin-bottom:2%;
+    text-align: left;
+    box-shadow: 0 2px 0 #D9E1E7;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    border-radius: 3px;
+}
+
+/*Media Queries*/
+
+
+@media screen and (max-width: 768px) {
+    h3 {
+        font-size: 1.5em;
+    }
+
+    p,
+    a {
+        font-size: 1.75rem;
+    }
+
+    .col-6 {
+        width: 100%;
+    }
+
+    .worklist {
+        flex-flow: wrap column;
+    }
+
+    .workitem {
+        max-width: 100%;
+        margin: 0;
+        padding-bottom: 20px;
+    }
+
+    .workitemimage {
+        max-width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 361px) {
+    .logo {
+        width: 100%;
+        text-align: center;
+        padding-left: 8px;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+
+    h4 {
+        font-size: 1.5em
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .main-title {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+}
+
