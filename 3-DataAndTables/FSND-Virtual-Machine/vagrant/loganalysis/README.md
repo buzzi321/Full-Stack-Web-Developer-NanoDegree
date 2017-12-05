@@ -20,4 +20,4 @@ This project is to create a reporting tool that prints out reports (in plain tex
 
 Output
 
-![Output](output.jpg)
+![Output](Output.jpg)
