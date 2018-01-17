@@ -37,18 +37,25 @@ This project is connected to the Full Stack Foundations and Authentication and A
 # Screen Shots
 
 ### Login
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Login](https://github.com/buzzi321/Full-Stack-Web-Developer-NanoDegree/blob/master/3-DataAndTables/Chap3FinalProject/vagrant/catalog/static/forReadme/LoginPage.jpg?raw=true)
+
 ### SignIn Progress
+![Image of Progress](https://github.com/buzzi321/Full-Stack-Web-Developer-NanoDegree/blob/master/3-DataAndTables/Chap3FinalProject/vagrant/catalog/static/forReadme/SignInProgress.jpg?raw=true)
 
 ### Categories List
+![Image of List](https://github.com/buzzi321/Full-Stack-Web-Developer-NanoDegree/blob/master/3-DataAndTables/Chap3FinalProject/vagrant/catalog/static/forReadme/CategoriesList.jpg?raw=true)
 
 ### Items List
+![Image of List](https://github.com/buzzi321/Full-Stack-Web-Developer-NanoDegree/blob/master/3-DataAndTables/Chap3FinalProject/vagrant/catalog/static/forReadme/ItemsList.jpg?raw=true)
 
 ### Edit Items
+![Image of Items](https://github.com/buzzi321/Full-Stack-Web-Developer-NanoDegree/blob/master/3-DataAndTables/Chap3FinalProject/vagrant/catalog/static/forReadme/EditItem.jpg?raw=true)
 
 ### Delete Items
+![Image of Items](https://github.com/buzzi321/Full-Stack-Web-Developer-NanoDegree/blob/master/3-DataAndTables/Chap3FinalProject/vagrant/catalog/static/forReadme/DeleteItem.jpg?raw=true)
 
 ### Catelog JSON
+![Image of JSON](https://github.com/buzzi321/Full-Stack-Web-Developer-NanoDegree/blob/master/3-DataAndTables/Chap3FinalProject/vagrant/catalog/static/forReadme/catalogJSON.jpg?raw=true)
 
 
 
