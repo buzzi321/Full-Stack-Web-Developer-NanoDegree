@@ -1,24 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-  <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
-   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+	<title>Catalog</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/css.css">
+<!--===============================================================================================-->
+	 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
   </script>
-
-<script src="//apis.google.com/js/platform.js?onload=start"> </script>
-
-<!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
-
-
 </head>
-
-
 <body>
-
-
-<!-- GOOGLE PLUS SIGN IN-->
-
-
-          <div id="signinButton">
+<div id="signinButton">
           <span class="g-signin"
             data-scope="openid email"
             data-clientid="593844266845-mvlnboji4iurroh9h9mvqelfbf1v4rns.apps.googleusercontent.com"
@@ -29,8 +22,35 @@
             data-approvalprompt="force">
           </span>
         </div>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+				<form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-53">
+						Sign In With
+					</span>
 
-<div id="result"></div>
+					<a href="#" class="btn-face m-b-20">
+						<i class="fa fa-facebook-official"></i>
+						Facebook
+					</a>
+
+					<a href="#" class="btn-google m-b-20">
+						<img src="images/icons/icon-google.png" alt="GOOGLE">
+						Google
+					</a>
+
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
 
 <script>
 function signInCallback(authResult) {
@@ -51,7 +71,7 @@ function signInCallback(authResult) {
         if (result) {
           $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
          setTimeout(function() {
-          window.location.href = "/restaurant";
+          window.location.href = "/category";
          }, 4000);
 
 
@@ -112,7 +132,7 @@ function signInCallback(authResult) {
         if (result) {
           $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
          setTimeout(function() {
-          window.location.href = "/restaurant";
+          window.location.href = "/category";
          }, 4000);
 
 
@@ -128,20 +148,11 @@ function signInCallback(authResult) {
     });
   }
 </script>
+	
 
 
-<button>
+</body>
 
 
-          <fb:login-button scope="public_profile,email" onlogin="sendTokenToServer();">
-<a href='javascript:sendTokenToServer()'>Login with Facebook</a>
 
-</fb:login-button>
-
-
-        </button>
-<!--END FACEBOOK SIGN IN -->
-
-  </body>
-
-  </html>
+</html>

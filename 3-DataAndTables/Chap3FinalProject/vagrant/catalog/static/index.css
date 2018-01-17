@@ -1,0 +1,175 @@
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url('../fonts/montserrat/Montserrat-SemiBold.ttf');
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+/*---------------------------------------------*/
+a {
+	font-family: Poppins-Regular;
+    text-decoration: none;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+  color: #fc00ff;
+  border-color: #fc00ff;
+}
+
+/*---------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+
+p {
+	font-family: Poppins-Regular;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+}
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ login ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-login100 {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;;
+}
+
+
+.wrap-login100 {
+  width: 680px;
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+
+
+/*[ FONT SIZE ]
+///////////////////////////////////////////////////////////
+*/
+.p-l-110 {padding-left: 110px;}
+.p-r-110 {padding-right: 110px;}
+.p-t-62 {padding-top: 62px;}
+.p-b-33 {padding-bottom: 33px;}
+.p-b-53 {padding-bottom: 53px;}
+.m-b-20 {margin-bottom: 20px;}
+
+
+/*==================================================================
+[ Form ]*/
+
+.login100-form {
+  width: 100%;
+}
+
+.login100-form-title {
+  width: 100%;
+  display: block;
+  font-family: Montserrat-Medium;
+  font-size: 39px;
+  color: #555555;
+  line-height: 1.2;
+  text-align: center;
+}
+
+
+/*Flex///////////////////////////////////////////*/
+.flex-sb {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: space-between;
+}
+
+.flex-w {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Responsive ]*/
+@media (max-width: 768px) {
+    .wrap-login100 {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+@media (max-width: 576px) {
+  .wrap-login100 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn-face,
+  .btn-google {
+    width: 100%;
+  }
+}
+
