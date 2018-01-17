@@ -26,7 +26,29 @@ This project is connected to the Full Stack Foundations and Authentication and A
     Run your application within the VM (python /vagrant/catalog/application.py)
     Access and test your application by visiting http://localhost:8000 locally
 
+
+## JSON endpoints
+
+* http://localhost:5000/category/JSON
+* http://localhost:5000/catalog.json
+* http://localhost:5000/category/1/items/JSON
+* http://localhost:5000/category/2/item/3/JSON
+
 # Screen Shots
+
 ### Login
-![Image of Yaktocat](
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+### SignIn Progress
+
+### Categories List
+
+### Items List
+
+### Edit Items
+
+### Delete Items
+
+### Catelog JSON
+
+
 
