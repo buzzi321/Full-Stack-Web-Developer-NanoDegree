@@ -18,7 +18,6 @@ CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Catalog Application"
 
-
 # Connect to Database and create database session
 engine = create_engine('sqlite:///catalog.db')
 Base.metadata.bind = engine
@@ -42,6 +41,8 @@ def root():
     else:
         categories = session.query(Category).order_by(asc(Category.name))
         return render_template('categories.html', categories=categories)
+
+
 @app.route('/login')
 def showLogin():
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
@@ -62,7 +63,6 @@ def fbconnect():
     access_token = request.data
     print "access token received %s " % access_token
 
-
     app_id = json.loads(open('fb_client_secrets.json', 'r').read())[
         'web']['app_id']
     app_secret = json.loads(
@@ -72,7 +72,6 @@ def fbconnect():
     h = httplib2.Http()
     result = h.request(url, 'GET')[1]
     print result
-
 
     # Use token to get user info from API
     userinfo_url = "https://graph.facebook.com/v2.8/me"
@@ -131,7 +130,7 @@ def fbdisconnect():
     facebook_id = login_session['facebook_id']
     # The access token must me included to successfully logout
     access_token = login_session['access_token']
-    url = 'https://graph.facebook.com/%s/permissions?access_token=%s' % (facebook_id,access_token)
+    url = 'https://graph.facebook.com/%s/permissions?access_token=%s' % (facebook_id, access_token)
     h = httplib2.Http()
     result = h.request(url, 'DELETE')[1]
     return "you have been logged out"
@@ -229,12 +228,13 @@ def gconnect():
     print "done!"
     return output
 
+
 # User Helper Functions
 
 
 def createUser(login_session):
     newUser = User(name=login_session['username'], email=login_session[
-                   'email'], picture=login_session['picture'])
+        'email'], picture=login_session['picture'])
     session.add(newUser)
     session.commit()
     user = session.query(User).filter_by(email=login_session['email']).one()
@@ -252,6 +252,7 @@ def getUserID(email):
         return user.id
     except:
         return None
+
 
 # DISCONNECT - Revoke a current user's token and reset their login_session
 
@@ -298,6 +299,7 @@ def categoryJSON():
     category = session.query(Category).all()
     return jsonify(category=[r.serialize for r in category])
 
+
 @app.route('/catalog.json')
 def catalogJSON():
     jsonout = []
@@ -323,6 +325,7 @@ def showCategories():
     else:
         return render_template('categories.html', categories=categories)
 
+
 # Create a new category
 
 
@@ -340,16 +343,18 @@ def newCategory():
     else:
         return render_template('newCategory.html')
 
+
 # Edit a category
 
 
 @app.route('/category/<int:category_id>/edit/', methods=['GET', 'POST'])
 def editCategory(category_id):
-    editedCategory = session.query(
-        Category).filter_by(id=category_id).one()
     if 'username' not in login_session:
         print "1"
         return redirect('/login')
+    editedCategory = session.query(
+        Category).filter_by(id=category_id).one()
+
     if editedCategory.user_id != login_session['user_id']:
         print "2"
         return "<script>function myFunction() {alert('You are not authorized to edit this category. Please create your own category in order to edit.');}</script><body onload='myFunction()'>"
@@ -382,6 +387,7 @@ def deleteCategory(category_id):
     else:
         return render_template('deleteCategory.html', category=categoryToDelete)
 
+
 # Show a category item
 
 
@@ -401,20 +407,29 @@ def showItem(category_id):
 # Create a new item
 @app.route('/category/<int:category_id>/item/new/', methods=['GET', 'POST'])
 def newItem(category_id):
+    print "Entered newitem"
     if 'username' not in login_session:
         return redirect('/login')
     category = session.query(Category).filter_by(id=category_id).one()
+    print category
+    print category.user_id
+    print login_session
     if login_session['user_id'] != category.user_id:
+        print "Entered 1st if"
         return "<script>function myFunction() {alert('You are not authorized to add items to this category. Please create your own category in order to add items.');}</script><body onload='myFunction()'>"
-        if request.method == 'POST':
-            newItem = Item(itemname=request.form['itemname'], description=request.form['description'], price=request.form[
-                               'price'], category_id=category_id, user_id=category.user_id)
-            session.add(newItem)
-            session.commit()
-            flash('New Item %s Item Successfully Created' % (newItem.itemname))
-            return redirect(url_for('showItem', category_id=category_id))
+    if request.method == 'POST':
+        print "Entered 2nd if"
+        newItem = Item(itemname=request.form['itemname'], description=request.form['description'], price=request.form[
+            'price'], category_id=category_id, user_id=category.user_id)
+        print newItem
+        session.add(newItem)
+        session.commit()
+        flash('New Item %s Item Successfully Created' % (newItem.itemname))
+        return redirect(url_for('showItem', category_id=category_id))
     else:
+        print "Entered else"
         return render_template('newitem.html', category_id=category_id)
+
 
 # Edit a item
 
