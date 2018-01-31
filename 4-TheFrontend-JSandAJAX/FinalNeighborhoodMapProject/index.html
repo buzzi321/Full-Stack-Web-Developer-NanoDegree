@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <title>Los Angeles Neighborhood Map</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<!--place to put the map in the HTML-->
+<!-- Split button -->
+<div class="map" id="map"></div>
+<div>
+    <input class="custsearch" data-bind="textInput: searchFilter, valueUpdate: 'afterkeydown'" placeholder="Search">
+<button class="custbutton" data-bind="text:buttonText, click: toggleMarkers">Show/Hide Markers</button>
+
+
+</div>
+
+<div class="row">
+        <div class="list-group custlist" id="list-tab" role="tablist" data-bind="foreach: myFilteredLocations">
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-home" role="tab" data-bind="text: title, click: $parent.fillMarkers"></a>
+
+        </div>
+</div>
+
+
+<script type='text/javascript' src='js/lib/knockout-3.4.2.js'></script>
+<script type='text/javascript' src='js/lib/jquery-3.3.1.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script type='text/javascript' src='js/lib/bootstrap.min.js'></script>
+<script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBaXufqDpjoEQOkXGYsTvcFbXbJpq5vYls&v=3&callback=intApp'> </script>
+
+<script type='text/javascript' src='js/app.js'></script>
+</body>
+</html>
