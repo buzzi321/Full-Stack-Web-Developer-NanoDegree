@@ -84,16 +84,16 @@ function LocationViewModel() {
 //Code for Show/Hide Button
     self.toggleMarkers = function(){
         if (self.showMarkers){
-            for (var i = 0; i < this.markers.length; i++ ) {
-                self.markers[i].setVisible(false);
+            for (var j = 0; j < this.markers.length; j++ ) {
+                self.markers[j].setVisible(false);
 
             }
             self.myInfoWindow.close();
             self.showMarkers = false;
         }
         else {
-            for (var i = 0; i < this.markers.length; i++ ) {
-                self.markers[i].setVisible(true);
+            for (var k = 0; k < this.markers.length; k++ ) {
+                self.markers[k].setVisible(true);
             }
             self.showMarkers = true;
         }
@@ -108,8 +108,8 @@ function LocationViewModel() {
     this.fillMarkers = function() {
 
         self.showMarkers = true;
-        for (var i = 0; i < self.markers.length; i++ ) {
-            self.markers[i].setVisible(true);
+        for (var m = 0; m < self.markers.length; m++ ) {
+            self.markers[m].setVisible(true);
         }
         self.buttonText(self.showMarkers === false ? 'Show Markers' : 'Hide Markers');
         self.populateInfoWindow(this, self.myInfoWindow);
@@ -125,7 +125,7 @@ function LocationViewModel() {
         var mapOptions = {
             center: latlng,
             zoom: 11
-        }
+        };
         map = new google.maps.Map(mapSheet, mapOptions);
         this.myInfoWindow = new google.maps.InfoWindow();
         for (var l = 0; l < locations.length; l++) {
@@ -183,5 +183,5 @@ function intApp() {
 
 
 function gm_authFailure() {
-    alert('Google Api Error....Please try later...')
+    alert('Google Api Error....Please try later...');
 }
