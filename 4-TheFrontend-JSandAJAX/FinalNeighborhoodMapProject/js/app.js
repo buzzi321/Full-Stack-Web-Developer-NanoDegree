@@ -1,4 +1,3 @@
-
 var locations = [
     {
         name: 'Warner Bros. VIP Studio Tour',
@@ -37,35 +36,34 @@ function LocationViewModel() {
 
     fsclientid = "O25EDZV2T5WZYMXWBGTNMKY3OM0VJJJ43CDHNX1FP11XDB5H";
     fsclientsecret = "Y141NHUTQ0U5YNX0M2EX2SY0CHUEWOX4WXYVPBH4HPP4UHSR";
-    this.populateInfoWindow = function(marker, infowindow) {
+    this.populateInfoWindow = function (marker, infowindow) {
         if (infowindow.marker != marker) {
             infowindow.setContent('');
             infowindow.marker = marker;
-        // Foursquare API Code
+            // Foursquare API Code
             var apiUrl = 'https://api.foursquare.com/v2/venues/search?ll=' +
                 marker.lat + ',' + marker.lng + '&client_id=' + fsclientid +
                 '&client_secret=' + fsclientsecret + '&query=' + marker.title +
                 '&v=20170708' + '&m=foursquare';
             // Foursquare API
-            $.getJSON(apiUrl).done(function(marker) {
+            $.getJSON(apiUrl).done(function (marker) {
                 var response = marker.response.venues[0];
 
 
-
                 var content = '<div id="iw-container">' +
-                    '<div class="iw-title">' + response.name +'</div>' +
+                    '<div class="iw-title">' + response.name + '</div>' +
                     '<div class="iw-subTitle">' + response.categories[0].shortName + '</div>' +
                     '<div class="iw-content">' +
                     '<div class="iw-subTitle">Address:</div>' +
-                    '<p>' + response.location.formattedAddress[0] + '<br>'+
-                    response.location.formattedAddress[1] + '<br>'+
-                    response.location.formattedAddress[2] + '<br>'+
+                    '<p>' + response.location.formattedAddress[0] + '<br>' +
+                    response.location.formattedAddress[1] + '<br>' +
+                    response.location.formattedAddress[2] + '<br>' +
                     '</div>' +
                     '<div class="iw-bottom-gradient"></div>' +
                     '</div>';
 
-                infowindow.setContent( content);
-            }).fail(function() {
+                infowindow.setContent(content);
+            }).fail(function () {
                 // Send alert
                 alert(
                     "There was an issue loading the Foursquare API. Please refresh your page to try again."
@@ -75,25 +73,26 @@ function LocationViewModel() {
 
             infowindow.open(map, marker);
 
-            infowindow.addListener('closeclick', function() {
+            infowindow.addListener('closeclick', function () {
                 infowindow.marker = null;
             });
         }
     };
 
 //Code for Show/Hide Button
-    self.toggleMarkers = function(){
-        if (self.showMarkers){
-            for (var j = 0; j < this.markers.length; j++ ) {
-                self.markers[j].setVisible(false);
+    self.toggleMarkers = function () {
+        if (self.showMarkers) {
+            for (var j = 0; j < this.markers.length; j++) {
+                self.markers[j].setMap(null);
+
 
             }
             self.myInfoWindow.close();
             self.showMarkers = false;
         }
         else {
-            for (var k = 0; k < this.markers.length; k++ ) {
-                self.markers[k].setVisible(true);
+            for (var k = 0; k < this.markers.length; k++) {
+                self.markers[k].setMap(map);
             }
             self.showMarkers = true;
         }
@@ -101,25 +100,15 @@ function LocationViewModel() {
     };
 
 
-
-
-
-
-    this.fillMarkers = function() {
-
-        self.showMarkers = true;
-        for (var m = 0; m < self.markers.length; m++ ) {
-            self.markers[m].setVisible(true);
-        }
-        self.buttonText(self.showMarkers === false ? 'Show Markers' : 'Hide Markers');
+    this.fillMarkers = function () {
         self.populateInfoWindow(this, self.myInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
-        setTimeout((function() {
+        setTimeout((function () {
             this.setAnimation(null);
         }).bind(this), 1400);
     };
 // Initialize the Map
-    this.initMap = function() {
+    this.initMap = function () {
         var latlng = new google.maps.LatLng(34.0522, -118.2437);
         var mapSheet = document.getElementById('map');
         var mapOptions = {
@@ -152,7 +141,7 @@ function LocationViewModel() {
     };
 
     self.initMap();
-    this.myFilteredLocations = ko.computed(function() {
+    this.myFilteredLocations = ko.computed(function () {
         var results = [];
         self.myInfoWindow.close();
         for (var i = 0; i < this.markers.length; i++) {
@@ -172,13 +161,19 @@ function LocationViewModel() {
         }
         return results;
     }, this);
+
 }
+
 
 
 function intApp() {
     ko.applyBindings(new LocationViewModel());
 
 
+}
+
+function googleError() {
+    alert("Google Maps has failed to load. Please check your internet connection and try again.");
 }
 
 
